@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111214">
+  <meta name="description" content="Registre seus treinos e acompanhe sua evolução.">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <title>Carga Certa</title>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><img src="/icon.svg" alt=""><b>CARGA<span>CERTA</span></b><button class="close-menu" id="close-menu">×</button></div>
+      <button class="profile-mini" data-page="settings"><div class="avatar avatar-small" id="sidebar-avatar">A</div><span><strong id="sidebar-name">Atleta</strong><small id="sidebar-goal">Consistência acima de tudo</small></span><i>•••</i></button>
+      <small class="menu-title">MENU PRINCIPAL</small>
+      <nav class="side-nav">
+        <button class="nav-link active" data-page="home">▦ <span>Visão geral</span></button>
+        <button class="nav-link" data-page="history">◷ <span>Histórico</span><em id="history-count">0</em></button>
+        <button class="nav-link" data-page="exercises">♧ <span>Exercícios</span></button>
+        <button class="nav-link" data-page="settings">☷ <span>Ajustes</span></button>
+      </nav>
+      <div class="sidebar-tip"><strong>✦ Treine no seu ritmo.</strong><span>O importante é continuar aparecendo.</span></div>
+      <small class="version">Carga Certa · versão simples</small>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><button class="menu-button" id="open-menu">☰</button><div class="mobile-brand"><img src="/icon.svg" alt=""><b>CARGA<span>CERTA</span></b></div><div class="top-actions"><button class="theme-button" id="theme-toggle" aria-label="Trocar tema">☼</button><button class="top-profile" data-page="settings"><div class="avatar avatar-small" id="top-avatar">A</div><span id="top-name">Atleta</span>⌄</button></div></header>
+      <div class="content">
+        <section class="page" id="page-home">
+          <div class="welcome"><div><small class="eyebrow" id="today-label"></small><h1>Bom dia, <span id="welcome-name">Atleta</span>.</h1><p>Pronto para superar o treino anterior?</p></div><button class="primary" data-action="open-log">＋ Registrar treino</button></div>
+          <div class="stats"><article><i class="orange">♨</i><span>Sequência atual<strong id="stat-days">0 dias</strong><small>dias de treino registrados</small></span></article><article><i class="blue">▥</i><span>Volume total<strong id="stat-volume">0 kg</strong><small>carga × reps × séries</small></span></article><article><i class="purple">♜</i><span>Maior carga<strong id="stat-best">0 kg</strong><small>melhor marca registrada</small></span></article><article><i class="green">◎</i><span>Meta da semana<strong id="stat-goal">0/4</strong><small>treinos concluídos</small></span></article></div>
+          <div class="home-grid"><section class="card focus-card"><div class="card-heading"><div><small class="eyebrow">SEU PRÓXIMO PASSO</small><h2>Registrar e evoluir</h2></div><span class="today-status"><b></b><span id="today-status">Nenhum registro hoje</span></span></div><div class="hero"><div><small>♧ TREINO LIVRE</small><h3>Seu treino começa<br>com o primeiro registro.</h3><p>Escolha um exercício, anote sua carga e acompanhe a evolução sem complicação.</p><button class="secondary" data-action="open-log">Começar agora ↑</button></div><div class="hero-dumbbell">♢</div></div><div class="quick"><div class="quick-title">Últimas cargas por exercício <button class="text-button" data-page="exercises">Ver exercícios ›</button></div><div id="latest-list" class="latest-list"><div class="empty">◌ <span>Seu histórico vai aparecer aqui depois do primeiro treino.</span></div></div></div></section><aside class="right-column"><section class="card insight"><small>✦ &nbsp; VISÃO RÁPIDA</small><h3 id="insight-title">Seu progresso começa hoje.</h3><p id="insight-text">Registre uma carga para transformar esforço em evolução visível.</p><div class="progress"><b id="progress-bar"></b></div><small id="progress-label">0 de 4 treinos na meta semanal</small></section><section class="card recent"><div class="section-title"><div><small class="eyebrow">ATIVIDADE</small><h2>Últimos registros</h2></div><button class="text-button" data-page="history">Ver tudo ›</button></div><div id="recent-list"><div class="empty centered">⌑<span>Sem atividade recente</span></div></div></section></aside></div>
+        </section>
+
+        <section class="page hidden" id="page-history"><div class="page-title"><div><small class="eyebrow">ACOMPANHAMENTO</small><h1>Histórico</h1><p>Veja tudo que você já colocou no treino.</p></div><strong class="total-badge"><b id="total-count">0</b> registros salvos</strong></div><div class="filters" id="history-filters"><button class="filter active" data-filter="all">Todos</button></div><section class="card table-card"><div class="table-head"><span>EXERCÍCIO</span><span>DATA</span><span>DESEMPENHO</span><span>VOLUME</span><span></span></div><div id="history-list"></div></section></section>
+
+        <section class="page hidden" id="page-exercises"><div class="page-title"><div><small class="eyebrow">BIBLIOTECA</small><h1>Exercícios</h1><p>Seus movimentos favoritos, sempre à mão.</p></div><button class="primary" data-action="open-exercise">＋ Novo exercício</button></div><div class="exercise-grid" id="exercise-grid"></div></section>
+
+        <section class="page hidden" id="page-settings"><div class="page-title"><div><small class="eyebrow">PERSONALIZAÇÃO</small><h1>Ajustes</h1><p>Deixe o Carga Certa com a sua cara.</p></div></div><div class="settings-grid"><section class="card settings-card"><div class="setting-head"><div><h2>Seu perfil</h2><p>Essas informações ficam salvas somente neste aparelho.</p></div>♙</div><div class="profile-edit"><button class="avatar-upload" id="avatar-button"><div class="avatar large" id="settings-avatar">A</div><b>＋</b></button><input type="file" id="avatar-file" accept="image/*" hidden><span><strong id="profile-preview-name">Atleta</strong><small>Toque na foto para trocar seu avatar.</small></span></div><label>Como quer ser chamado<input id="profile-name" placeholder="Digite seu nome"></label><label>Frase de treino<input id="profile-goal" placeholder="Ex.: Foco no processo"></label><button class="primary full" id="save-profile">✓ Salvar alterações</button></section><section class="card settings-card"><div class="setting-head"><div><h2>Aparência</h2><p>Escolha o jeito mais confortável de usar.</p></div>☼</div><button class="setting-row" id="settings-theme"><span class="setting-icon">☼</span><span><strong id="theme-label">Modo claro</strong><small>Alternar entre claro e escuro</small></span><i class="toggle" id="theme-switch"><b></b></i></button></section><section class="card settings-card"><div class="setting-head"><div><h2>Seus dados</h2><p>Sem nuvem, sem login: você tem o controle.</p></div>⇩</div><div class="data-buttons"><button class="outline" id="export-data">⇩ Exportar backup</button><button class="outline" id="import-data">⇧ Importar backup</button></div><div class="privacy">✦ &nbsp; O Carga Certa não envia seus registros para nenhum servidor. Faça backups regularmente.</div><input type="file" id="backup-file" accept="application/json,.json" hidden><button class="reset" id="reset-data">↻ Apagar dados deste aparelho</button></section></div></section>
+      </div>
+    </main>
+    <nav class="bottom-nav"><button class="active" data-page="home">▦<span>Início</span></button><button data-page="history">◷<span>Histórico</span></button><button data-page="exercises">♧<span>Exercícios</span></button><button data-page="settings">☷<span>Ajustes</span></button></nav>
+  </div>
+
+  <div class="modal-backdrop hidden" id="log-modal"><div class="modal"><button class="modal-close" data-action="close-modal">×</button><small class="eyebrow">NOVO REGISTRO</small><h2>Como foi o treino?</h2><p>Anote enquanto ainda está fresco na memória.</p><label>Exercício<select id="log-exercise"></select></label><button class="create-link" data-action="open-exercise">＋ Criar novo exercício</button><div class="form-row"><label>Carga (kg)<input id="log-weight" type="number" min="0" step="0.5" value="20"></label><label>Repetições<input id="log-reps" type="number" min="1" value="10"></label><label>Séries<input id="log-sets" type="number" min="1" value="3"></label></div><label>Observação <small>(opcional)</small><textarea id="log-note" rows="3" placeholder="Ex.: última série foi até a falha"></textarea><div class="log-preview"><span id="preview-exercise">Supino reto</span><b id="preview-values">3 × 10 · 20 kg</b></div><div class="modal-actions"><button class="outline" data-action="close-modal">Cancelar</button><button class="primary" id="save-log">✓ Salvar registro</button></div></div></div>
+  <div class="modal-backdrop hidden" id="exercise-modal"><div class="modal small-modal"><button class="modal-close" data-action="close-exercise">×</button><small class="eyebrow">BIBLIOTECA</small><h2>Novo exercício</h2><p>Adicione um movimento à sua lista.</p><label>Nome do exercício<input id="new-exercise-name" placeholder="Ex.: Puxada alta"></label><label>Grupo muscular<select id="new-exercise-group"><option>Peito</option><option>Costas</option><option>Pernas</option><option>Ombros</option><option>Braços</option><option>Core</option><option>Cardio</option><option>Outro</option></select></label><div class="modal-actions"><button class="outline" data-action="close-exercise">Cancelar</button><button class="primary" id="save-exercise">＋ Adicionar</button></div></div></div>
+  <div class="toast hidden" id="toast"></div>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
